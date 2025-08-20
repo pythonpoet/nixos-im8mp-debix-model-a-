@@ -3,21 +3,21 @@
 {
   description = "mesh-communicator - Ghaf based configuration";
 
-  nixConfig = {
-    extra-trusted-substituters = [
-      "https://cache.vedenemo.dev"
-      "https://cache.ssrcdevops.tii.ae"
-    ];
-    extra-trusted-public-keys = [
-      "cache.vedenemo.dev:8NhplARANhClUSWJyLVk4WMyy1Wb4rhmWW2u8AejH9E="
-      "cache.ssrcdevops.tii.ae:oOrzj9iCppf+me5/3sN/BxEkp5SaFkHfKTPPZ97xXQk="
-    ];
-  };
+  # nixConfig = {
+  #   extra-trusted-substituters = [
+  #     "https://cache.vedenemo.dev"
+  #     "https://cache.ssrcdevops.tii.ae"
+  #   ];
+  #   extra-trusted-public-keys = [
+  #     "cache.vedenemo.dev:8NhplARANhClUSWJyLVk4WMyy1Wb4rhmWW2u8AejH9E="
+  #     "cache.ssrcdevops.tii.ae:oOrzj9iCppf+me5/3sN/BxEkp5SaFkHfKTPPZ97xXQk="
+  #   ];
+  # };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     flake-utils.url = "github:numtide/flake-utils";
-    nixos-hardware.url = "github:gangaram-tii/nixos-hardware/pr/imx8mp-evk-platform";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-parts.url = "github:hercules-ci/flake-parts";
     ghaf = {
       url = "github:tiiuae/ghaf";

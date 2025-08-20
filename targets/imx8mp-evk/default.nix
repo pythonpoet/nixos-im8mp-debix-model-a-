@@ -7,17 +7,18 @@
   nixpkgs,
   nixos-hardware,
 }: let
-  name = "imx8mq-evk";
+  name = "imx8mp-evk";
   system = "aarch64-linux";
-  imx8mq-evk = variant: extraModules: let
+  imx8mp-evk = variant: extraModules: let
     hostConfiguration = lib.nixosSystem {
       inherit system;
       specialArgs = {inherit lib;};
       modules =
         [
-          nixos-hardware.nixosModules.nxp-imx8mq-evk
+          #nixos-hardware.nixosModules.nxp-imx8mp-evk
+          ./hardware/default.nix
 
-          ../../modules/hardware/imx8/imx8mq-sdimage.nix
+          ../../modules/hardware/imx8/imx8mp-sdimage.nix
 
           (ghaf + "/modules/host")
           (ghaf + "/overlays/cross-compilation")
@@ -38,7 +39,7 @@
               windows-launcher.enable = false;
             };
             nixpkgs.buildPlatform.system = "x86_64-linux";
-            hardware.deviceTree.name = lib.mkForce "freescale/imx8mq-evk.dtb";
+            hardware.deviceTree.name = lib.mkForce "freescale/imx8mp-evk.dtb";
             boot.loader.grub.enable = lib.mkDefault false;
             boot.kernelParams = lib.mkForce ["root=/dev/mmcblk0p2"];
             boot.consoleLogLevel = lib.mkForce 4;
@@ -56,8 +57,8 @@
   debugModules = [];
   releaseModules = [];
   targets = [
-    (imx8mq-evk "debug" debugModules)
-    (imx8mq-evk "release" releaseModules)
+    (imx8mp-evk "debug" debugModules)
+    (imx8mp-evk "release" releaseModules)
   ];
 in {
   nixosConfigurations =

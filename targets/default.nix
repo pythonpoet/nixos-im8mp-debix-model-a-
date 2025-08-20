@@ -5,7 +5,7 @@
   ...
 }: {
   flake = with inputs; (
-    import ./imx8mq-evk {
+    import ./imx8mp-evk {
       inherit lib ghaf nixpkgs nixos-hardware;
     }
   );
