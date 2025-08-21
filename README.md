@@ -5,7 +5,7 @@ This flake enables cross-compilation of sdimage for NXP iMX8 MQuad evaluation ki
 To generate an SD image run the following command:
 
 ```
- $> nix build .#packages.riscv64-linux.microchip-icicle-kit-<release/debug>
+ $> nix build .#packages.x86_64-linux.imx8mp-evk-release
 ```
 
 After successful compilation it generates sdimage `./result/nixos.img` which can be programmed in sdcard to boot the board.

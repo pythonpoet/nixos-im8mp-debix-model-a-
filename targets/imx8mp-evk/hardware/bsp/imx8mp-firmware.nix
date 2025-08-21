@@ -11,9 +11,15 @@ stdenv.mkDerivation rec {
 
   dontUnpack = true;
   dontStrip = true;
+   
+    
 
-  installPhase = ''
-    ${pkgs.bash}/bin/bash $src --auto-accept --force
-    mv firmware-imx-${version} $out
+     installPhase = ''
+    mkdir -p $out
+    cp $src $out/firmware-imx-${version}.bin
   '';
+  # installPhase = ''
+  #   ${pkgs.bash}/bin/bash $src --auto-accept --force
+  #   mv firmware-imx-${version} $out
+  # '';
 }
