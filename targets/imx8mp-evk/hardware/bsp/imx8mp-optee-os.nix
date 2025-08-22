@@ -71,6 +71,7 @@ pkgs.stdenv.mkDerivation rec {
     "PLATFORM=imx"
     "PLATFORM_FLAVOR=mx8mpevk"
     "CFG_ARM64_core=y"
+    "BR2_PACKAGE_OPENSC=n"
     "CFG_TEE_TA_LOG_LEVEL=0"
     "CFG_TEE_CORE_LOG_LEVEL=0"
     "CROSS_COMPILE=${toolchain}/bin/${toolchain.targetPrefix}"
