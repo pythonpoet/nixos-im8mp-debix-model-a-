@@ -17,8 +17,8 @@
   nixConfig = {
     # Configure builders directly in the flake
     builders = [
-      "ssh://david@192.168.1.31 x86_64-linux /home/david/.ssh/path/to/ssh/key/id_ed25519.pub - 4 2 kvm"
-      "ssh://david@192.168.1.99 x86_64-linux /home/david/.ssh/path/to/ssh/key/id_rsa.pub.pub - 4 2"
+      "ssh://david@192.168.1.31 x86_64-linux /home/david/.ssh/id_ed25519 - 4 2 kvm"
+      "ssh://david@192.168.1.99 x86_64-linux /home/david/.ssh/id_ed25519 - 4 2"
       #"ssh://user@arm-builder aarch64-linux /path/to/ssh/key - 4 1" # Native ARM builder
     ];
     
