@@ -62,7 +62,7 @@ in
   extraConfig = ''
     CONFIG_USE_BOOTCOMMAND=y
     CONFIG_BOOTCOMMAND="setenv ramdisk_addr_r 0x45000000; setenv fdt_addr_r 0x44000000; run distro_bootcmd; "
-    CONFIG_CMD_BOOTEFI_SELFTEST=y
+    CONFIG_CMD_BOOTEFI_SELFTEST=n
     CONFIG_CMD_BOOTEFI=y
     CONFIG_EFI_LOADER=y
     CONFIG_BLK=y
@@ -76,7 +76,7 @@ in
   configurePhase = ''
     runHook preConfigure
 
-    make imx8mp_evk_defconfig hjklhhlkjhjökh
+    make imx8mp_evk_defconfig
     cat $extraConfigPath >> .config
 
     runHook postConfigure
