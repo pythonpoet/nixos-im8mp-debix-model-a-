@@ -3,7 +3,9 @@ with pkgs;
 buildLinux (
   args
   // rec {
-    version = "6.1.55";
+
+    # version = "6.1.55";
+    version = "5.10.72";
     name = "imx8mp-linux";
 
     # modDirVersion needs to be x.y.z, will automatically add .0 if needed
@@ -43,13 +45,19 @@ buildLinux (
       USBIP_HOST m
       USBIP_VUDC m
     '';
-
+    
+    # src = fetchFromGitHub {
+    #   owner = "nxp-imx";
+    #   repo = "linux-imx";
+    #   # tag: lf-6.1.55-2.2.0
+    #   rev = "770c5fe2c1d1529fae21b7043911cd50c6cf087e";
+    #   sha256 = "sha256-tIWt75RUrjB6KmUuAYBVyAC1dmVGSUAgqV5ROJh3xU0=";
+    # };
     src = fetchFromGitHub {
-      owner = "nxp-imx";
-      repo = "linux-imx";
-      # tag: lf-6.1.55-2.2.0
-      rev = "770c5fe2c1d1529fae21b7043911cd50c6cf087e";
-      sha256 = "sha256-tIWt75RUrjB6KmUuAYBVyAC1dmVGSUAgqV5ROJh3xU0=";
+      owner = "debix-tech";
+      repo = "linux-nxp-debix";
+      rev = "lf_5.10.72-debix_model_a";
+      sha256 = "+5vJGmPbBD+8dVGT2CHm2dx6DL+1R8eiRHLVDxiw2eE=";
     };
   }
   // (args.argsOverride or { })

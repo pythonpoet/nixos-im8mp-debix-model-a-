@@ -14,12 +14,18 @@
   buildPackages,
 }:
 let
-  ubsrc = fetchgit {
-    url = "https://github.com/nxp-imx/uboot-imx.git";
-    # tag: "lf-6.1.55-2.2.0"
-    rev = "49b102d98881fc28af6e0a8af5ea2186c1d90a5f";
-    sha256 = "sha256-1j6X82DqezEizeWoSS600XKPNwrQ4yT0vZuUImKAVVA=";
-  };
+  # ubsrc = fetchgit {
+  #   url = "https://github.com/nxp-imx/uboot-imx.git";
+  #   # tag: "lf-6.1.55-2.2.0"
+  #   rev = "49b102d98881fc28af6e0a8af5ea2186c1d90a5f";
+  #   sha256 = "sha256-1j6X82DqezEizeWoSS600XKPNwrQ4yT0vZuUImKAVVA=";
+  # };
+  ubsrc = super.fetchFromGitHub {
+      owner = "debix-tech";
+      repo = "uboot-nxp-debix";
+      rev = "main";
+      sha256 = "5uZZk3pEVySP/yeLId/Hh2Zq8uzeqckcRgjrOZKzGBg="; # nix-prefetch
+    };
 in
 (stdenv.mkDerivation {
   pname = "imx8mp-uboot";

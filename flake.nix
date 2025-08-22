@@ -49,6 +49,19 @@
       imports = [
         ./targets
       ];
+            # ADD THIS OVERLAY TO FIX WOLFSSL
+      perSystem = {config, pkgs, ...}: {
+        _module.args.pkgs = import nixpkgs {
+          system = config.system;
+          overlays = [
+            (final: prev: {
+              wolfssl = prev.wolfssl.overrideAttrs (old: {
+                doCheck = false;
+              });
+            })
+          ];
+        };
+      };
     };
 }
 
