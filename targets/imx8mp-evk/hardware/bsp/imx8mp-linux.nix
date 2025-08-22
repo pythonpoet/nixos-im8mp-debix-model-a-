@@ -4,8 +4,8 @@ buildLinux (
   args
   // rec {
 
-    # version = "6.1.55";
-    version = "5.10.72";
+    version = "6.1.55";
+    #version = "5.10.72";
     name = "imx8mp-linux";
 
     # modDirVersion needs to be x.y.z, will automatically add .0 if needed
