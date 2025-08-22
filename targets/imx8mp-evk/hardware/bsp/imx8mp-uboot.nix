@@ -45,7 +45,7 @@ in
     which
     ncurses
     libuuid
-    gnutls
+   # gnutls
     openssl
     perl
   ];
@@ -76,7 +76,7 @@ in
   configurePhase = ''
     runHook preConfigure
 
-    make imx8mp_debix_model_a_defconfig
+    make imx8mp_evk_defconfig
     cat $extraConfigPath >> .config
 
     runHook postConfigure
