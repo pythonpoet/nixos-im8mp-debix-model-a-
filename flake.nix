@@ -14,6 +14,19 @@
   #   ];
   # };
 
+  nixConfig = {
+    # Configure builders directly in the flake
+    builders = [
+      "ssh://david@192.168.1.31 x86_64-linux /home/david/.ssh/path/to/ssh/key/id_ed25519.pub - 4 2 kvm"
+      "ssh://david@192.168.1.99 x86_64-linux /home/david/.ssh/path/to/ssh/key/id_rsa.pub.pub - 4 2"
+      #"ssh://user@arm-builder aarch64-linux /path/to/ssh/key - 4 1" # Native ARM builder
+    ];
+    
+    # Optional: Binary cache settings
+    extra-substituters = ["https://cache.nixos.org" "https://your-cache.cachix.org"];
+    trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     flake-utils.url = "github:numtide/flake-utils";
@@ -33,6 +46,7 @@
   outputs = inputs @ {
     flake-parts,
     ghaf,
+    nixpkgs,
     ...
   }:
     flake-parts.lib.mkFlake

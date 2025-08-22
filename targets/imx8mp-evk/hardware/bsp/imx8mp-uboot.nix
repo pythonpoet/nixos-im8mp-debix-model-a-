@@ -12,6 +12,7 @@
   which,
   perl,
   buildPackages,
+  fetchFromGitHub
 }:
 let
   # ubsrc = fetchgit {
@@ -20,16 +21,16 @@ let
   #   rev = "49b102d98881fc28af6e0a8af5ea2186c1d90a5f";
   #   sha256 = "sha256-1j6X82DqezEizeWoSS600XKPNwrQ4yT0vZuUImKAVVA=";
   # };
-  ubsrc = super.fetchFromGitHub {
+  ubsrc = fetchFromGitHub {
       owner = "debix-tech";
       repo = "uboot-nxp-debix";
-      rev = "main";
-      sha256 = "5uZZk3pEVySP/yeLId/Hh2Zq8uzeqckcRgjrOZKzGBg="; # nix-prefetch
+      rev = "lf_v2022.04-debix_model_a";
+      sha256 = "sha256-5uZZk3pEVySP/yeLId/Hh2Zq8uzeqckcRgjrOZKzGBg="; # nix-prefetch
     };
 in
 (stdenv.mkDerivation {
   pname = "imx8mp-uboot";
-  version = "2023.04";
+  version = "2022.04";
   src = ubsrc;
 
   postPatch = ''
