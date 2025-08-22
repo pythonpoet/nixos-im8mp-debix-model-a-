@@ -45,7 +45,7 @@ in
     which
     ncurses
     libuuid
-    gnutls
+   # gnutls
     openssl
     perl
   ];
