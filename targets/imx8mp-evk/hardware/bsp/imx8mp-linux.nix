@@ -11,7 +11,7 @@ buildLinux (
     # modDirVersion needs to be x.y.z, will automatically add .0 if needed
     modDirVersion = version;
 
-    defconfig = "imx_v8_defconfig";
+    defconfig = "imx_v8_defconfig kghgkjjgjh";
 
     # https://github.com/NixOS/nixpkgs/pull/366004
     # introduced a breaking change that if a module is declared but it is not being used it will faill.
