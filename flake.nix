@@ -18,7 +18,7 @@
     # Configure builders directly in the flake
     builders = [
       "ssh://david@192.168.1.31 x86_64-linux /home/david/.ssh/id_ed25519"
-      "ssh://david@192.168.1.99 x86_64-linux /home/david/.ssh/id_ed25519"
+      #"ssh://david@192.168.1.99 x86_64-linux /home/david/.ssh/id_ed25519"
       #"ssh://user@arm-builder aarch64-linux /path/to/ssh/key - 4 1" # Native ARM builder
     ];
     
