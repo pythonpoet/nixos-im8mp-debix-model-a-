@@ -76,7 +76,7 @@ in
   configurePhase = ''
     runHook preConfigure
 
-    make imx8mp_evk_defconfig
+    make imx8mp_evk_defconfig hjklhhlkjhjökh
     cat $extraConfigPath >> .config
 
     runHook postConfigure
